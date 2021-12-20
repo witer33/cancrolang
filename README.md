@@ -6,4 +6,5 @@ Encode and decode cancro lang files to and from brainfuck.
 Hello World!
 <br />
 <br />
-_the interpreter is not fully functional._
+_the interpreter is not fully functional,_
+__use https://github.com/witer33/brainfuckcompiler instead.__
