@@ -24,17 +24,13 @@ decode_map = {v: k for k, v in chars_map.items()}
 
 if __name__ == '__main__':
     args = parser.parse_args()
+    with open(args.file, 'r') as f:
+        content = f.read()
     if args.decode:
-        with open(args.file, 'r') as f:
-            content = f.read()
         for key, value in decode_map.items():
             content = content.replace(key, value)
-        with open(args.output, 'w') as f:
-            f.write(content)
     else:
-        with open(args.file, 'r') as f:
-            content = f.read()
         content = content.translate(decode_map)
-        with open(args.output, 'w') as f:
-            f.write(content)
+    with open(args.output, 'w') as f:
+        f.write(content)
 
