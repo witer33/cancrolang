@@ -38,7 +38,10 @@ def decode(data: str) -> str:
 if __name__ == '__main__':
     args = parser.parse_args()
     if args.run:
-        interpreter.BrainfuckInterpreter(interpreter.CancroReader(open(args.file, "rb"))).run()
+        if args.decode:
+            interpreter.BrainfuckInterpreter(open(args.file, "rb")).run()
+        else:
+            interpreter.BrainfuckInterpreter(interpreter.CancroReader(open(args.file, "rb"))).run()
     else:
         with open(args.file, 'r') as f:
             content = f.read()
@@ -48,3 +51,4 @@ if __name__ == '__main__':
             content = encode(content)
         with open(args.output, 'w') as f:
             f.write(content)
+
